@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>SerielleHealth | Dashboard</title>
+<link rel="shortcut icon" href="images/logo.avif" type="image/x-icon">
+<link rel="stylesheet" href="utilities/style.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="navbar">
+    <div class="navbar-brand">
+        <div class="logo"><img src="images/logo.avif" alt="" width="60px"> SerielleHealth</div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </label>
+
+    <div class="navbar-links-container">
+        <ul class="navbar-nav-links">
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="onboarding.html">Onboarding</a></li>
+            <li><a href="clinician.html">Clinician Portal</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="health.html">Health Guides</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+            <button class="btn btn-login">Log In</button>
+            <button class="btn btn-signup">Sign Up</button>
+        </div>
+    </div>
+</nav>
+
+<script>
+function toggleMenu() {
+    document.getElementById("mobile-menu").classList.toggle("active");
+}
+</script>
+
+
+
+
+
+
+<div class="dashboard-section">
+
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+
+        <!-- Welcome + Pregnancy Card -->
+        <div class="card welcome-card">
+            <h2 class="welcome-text">Welcome back,</h2>
+
+            <div class="pregnancy-card">
+                <div class="pc-header">
+                    <h3>Your Pregnancy Journey</h3>
+
+                    <div class="pc-week">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#EB3B8A">
+                            <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 
+                            6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 
+                            21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V9H19V20Z"/>
+                        </svg>
+                        <span>Week 0</span>
+                    </div>
+                </div>
+
+                <div class="pc-meta">
+                    <span class="label">Current Trimester</span>
+                    <span class="value">Trimester</span>
+
+                    <span class="label">Expected Due Date</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <p class="today-checklist">Today's Health Checklist</p>
+        </div>
+
+        <!-- Book Appointment -->
+        <div class="card small-card">
+            <div class="card-title">
+                <h3>Book Appointment</h3>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#EB3B8A">
+                    <path d="M19 4H18V2H16V4H8V2H6V4H5C3.9 4 3 
+                    4.9 3 6V20C3 21.1 3.9 22 5 22H19C20.1 22 
+                    21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 
+                    20H5V9H19V20Z"/>
+                </svg>
+            </div>
+
+            <p class="card-subtext">Schedule a consultation with our certified clinicians</p>
+
+            <button class="pink-btn">Book New Appointment</button>
+        </div>
+
+        <!-- Community Card -->
+        <div class="card small-card">
+            <div class="community-header">
+                <h3>Community</h3>
+                <a href="#" class="view-all">View All</a>
+            </div>
+
+            <div class="community-item">
+                <span class="date">Aug 18, 2025</span>
+                <h4 class="community-title">Health Tips</h4>
+                <p class="community-desc">Discussing healthy habits</p>
+            </div>
+
+            <div class="community-item">
+                <span class="date">Aug 18, 2025</span>
+                <h4 class="community-title">Mother's Gathering</h4>
+                <p class="community-desc">Join our mothers' gathering</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+        <div class="card guide-card">
+            <div class="guide-header">
+                <h3>This Week's Health Guide</h3>
+                <a href="#" class="view-library">View Library</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- AI HEALTH ASSISTANT SECTION -->
+<div class="ai-card">
+    <div class="ai-header">
+        <h3>Ask Our AI Health Assistant</h3>
+        <div class="ai-icon">
+            <!-- Bot Icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#E91E63">
+                <path d="M12 2C11.45 2 11 2.45 11 3V5H7C5.9 5 5 5.9 5 7V17C5 18.1 5.9 19 7 19H17C18.1 19 19 18.1 19 17V7C19 5.9 18.1 5 17 5H13V3C13 2.45 12.55 2 12 2ZM7 7H17V17H7V7ZM9 9C8.45 9 8 9.45 8 10C8 10.55 8.45 11 9 11C9.55 11 10 10.55 10 10C10 9.45 9.55 9 9 9ZM15 9C14.45 9 14 9.45 14 10C14 10.55 14.45 11 15 11C15.55 11 16 10.55 16 10C16 9.45 15.55 9 15 9ZM9 13H15V15H9V13Z"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="ai-content">
+        <div class="ai-input-icon">
+            <!-- Bot Icon Left -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#E91E63">
+                <path d="M12 2C11.45 2 11 2.45 11 3V5H7C5.9 5 5 5.9 5 7V17C5 18.1 5.9 19 7 19H17C18.1 19 19 18.1 19 17V7C19 5.9 18.1 5 17 5H13V3C13 2.45 12.55 2 12 2ZM7 7H17V17H7V7ZM9 9C8.45 9 8 9.45 8 10C8 10.55 8.45 11 9 11C9.55 11 10 10.55 10 10C10 9.45 9.55 9 9 9ZM15 9C14.45 9 14 9.45 14 10C14 10.55 14.45 11 15 11C15.55 11 16 10.55 16 10C16 9.45 15.55 9 15 9ZM9 13H15V15H9V13Z"/>
+            </svg>
+        </div>
+
+        <input type="text" placeholder="Ask me anything..." class="ai-input">
+
+        <button class="ai-send-btn">
+            ➤
+        </button>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <div class="footer-content-wrapper">
+
+        <div class="footer-branding">
+            <div class="logo-container">
+                <div class="logo"><img src="images/logo.avif" alt="" width="60px"> SerielleHealth</div>
+            </div>
+            <p class="tagline">
+                Empowering expectant mothers in Nigeria with trusted medical guidance and community support throughout their pregnancy journey.
+            </p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-links-container">
+            <div class="footer-column">
+                <h4 class="column-title">Platform</h4>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Health Guides</a></li>
+                    <li><a href="#">For Clinicians</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="column-title">Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="column-title">Resources</h4>
+                <ul>
+                    <li><a href="#">Health Blog</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Healthcare Partners</a></li>
+                    <li><a href="#">Emergency Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="copyright">© 2025 SerielleHealth. All rights reserved.</p>
+        <p class="credit">Made with ❤️ for Nigerian mothers</p>
+    </div>
+</footer>
+
+</body>
+</html>

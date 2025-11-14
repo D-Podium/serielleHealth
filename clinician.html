@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>SerielleHealth | Clinician</title>
+<link rel="shortcut icon" href="images/logo.avif" type="image/x-icon">
+<link rel="stylesheet" href="utilities/clinic.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="navbar">
+    <div class="navbar-brand">
+        <div class="logo"><img src="images/logo.avif" alt="" width="60px"> SerielleHealth</div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </label>
+
+    <div class="navbar-links-container">
+        <ul class="navbar-nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="onboarding.html">Onboarding</a></li>
+            <li><a href="clinician.html" class="active">Clinician Portal</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="health.html">Health Guides</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+            <button class="btn btn-login">Log In</button>
+            <button class="btn btn-signup">Sign Up</button>
+        </div>
+    </div>
+</nav>
+
+<script>
+function toggleMenu() {
+    document.getElementById("mobile-menu").classList.toggle("active");
+}
+</script>
+<!--------------BODY CONTENT------------->
+<div class="container">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <h1 class="heading-pink">Clinician Portal</h1>
+            <button class="btn-pink">Update Availability</button>
+        </header>
+
+        <!-- Main Dashboard Content Grid -->
+        <section class="dashboard-grid">
+
+            <!-- 1. Current Availability (Left Column Top) -->
+            <div class="card availability-card">
+                <h3 class="availability-header">Current Availability</h3>
+                
+                <div class="week-days">
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+                </div>
+
+                <div class="day-slots">
+                    <div class="slot">1</div>
+                    <div class="slot selected">2</div>
+                    <div class="slot selected">3</div>
+                    <div class="slot selected">4</div>
+                    <div class="slot">5</div>
+                    <div class="slot">6</div>
+                    <div class="slot">7</div>
+                </div>
+            </div>
+
+            <!-- 2. Teleconsultation Setup (Left Column Bottom) -->
+            <div class="card teleconsultation-card">
+                <h3 class="teleconsultation-header">Teleconsultation Setup</h3>
+                
+                <div class="tele-item">
+                    <div class="tele-info">
+                        <h5>Video Call Settings</h5>
+                        <p>Configure your teleconsultation preferences</p>
+                    </div>
+                    <button class="tele-btn">Configure</button>
+                </div>
+
+                <div class="tele-item">
+                    <div class="tele-info">
+                        <h5>Connection Test</h5>
+                        <p>Test your camera and microphone</p>
+                    </div>
+                    <button class="tele-btn">Test Now</button>
+                </div>
+            </div>
+
+            <!-- 3. Upcoming Appointments (Right Column Top) -->
+            <div class="card appointments-card">
+                <div class="appointments-header">
+                    <h3>Upcoming Appointments</h3>
+                    <select class="filter-select">
+                        <option>Filter by status</option>
+                        <option>Confirmed</option>
+                        <option>Pending</option>
+                        <option>Cancelled</option>
+                    </select>
+                </div>
+                <!-- Placeholder for actual appointment list -->
+                <div class="appointments-placeholder">No upcoming appointments found.</div>
+            </div>
+
+            <!-- 4. Patient Communication (Right Column Bottom) -->
+            <div class="card communication-card">
+                <h3 class="communication-header">Patient Communication</h3>
+                
+                <div class="chat-area">
+                    <div class="chat-messages">
+                        <!-- Example Messages -->
+                        <div class="chat-message patient-message">
+                            Hello, I have some questions about my prenatal vitamins
+                        </div>
+                        <div class="chat-message clinician-message">
+                            I'll be happy to help you with that during our consultation
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" placeholder="Type a message..." class="chat-input">
+                        <button class="chat-send-btn" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+</div>
+
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+        <div class="footer-content-wrapper">
+
+            <!-- Branding & Description Section -->
+            <div class="footer-branding">
+                <div class="logo-container">
+                    <div class="logo"><img src="images/logo.avif" alt="" width="60px"> SerielleHealth</div>
+                </div>
+                <p class="tagline">
+                    Empowering expectant mothers in Nigeria with trusted medical guidance and community support throughout their pregnancy journey.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Links Columns Section -->
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h4 class="column-title">Platform</h4>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Health Guides</a></li>
+                        <li><a href="#">For Clinicians</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="column-title">Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="column-title">Resources</h4>
+                    <ul>
+                        <li><a href="#">Health Blog</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Healthcare Partners</a></li>
+                        <li><a href="#">Emergency Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright & Credit Section -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 SerielleHealth. All rights reserved.</p>
+            <p class="credit">Made with <i class="fas fa-heart"></i> for Nigerian mothers</p>
+        </div>
+    </footer>
+
+</body>
+</html>

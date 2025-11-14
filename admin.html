@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>SerielleHealth | Admin</title>
+<link rel="shortcut icon" href="images/logo.avif" type="image/x-icon">
+<link rel="stylesheet" href="utilities/admin.css">
+
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="navbar">
+    <div class="navbar-brand">
+        <div class="logo"><img src="images/logo.avif" alt="" width="60px"> SerielleHealth</div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </label>
+
+    <div class="navbar-links-container">
+        <ul class="navbar-nav-links">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="onboarding.html">Onboarding</a></li>
+            <li><a href="clinician.html">Clinician Portal</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="health.html">Health Guides</a></li>
+            <li><a href="admin.html" class="active">Admin</a></li>
+        </ul>
+
+        <div class="navbar-actions">
+            <button class="btn btn-login">Log In</button>
+            <button class="btn btn-signup">Sign Up</button>
+        </div>
+    </div>
+</nav>
+
+<script>
+function toggleMenu() {
+    document.getElementById("mobile-menu").classList.toggle("active");
+}
+</script>
+
+<!-- 2. MAIN DASHBOARD CONTENT -->
+    <main class="container">
+        
+        <h1>Admin Dashboard</h1>
+        <p class="subtitle">Manage users, content, and platform activity</p>
+
+        <!-- Stats Cards Grid -->
+        <div class="stats-grid">
+            
+            <div class="stat-card users-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-users"></i></div>
+                <div class="stat-details">
+                    <p class="stat-label">Total Users</p>
+                    <p class="stat-value">2,847</p>
+                </div>
+            </div>
+            
+            <div class="stat-card guides-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-book-medical"></i></div>
+                <div class="stat-details">
+                    <p class="stat-label">Health Guides</p>
+                    <p class="stat-value">156</p>
+                </div>
+            </div>
+
+            <div class="stat-card pending-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-hourglass-half"></i></div>
+                <div class="stat-details">
+                    <p class="stat-label">Pending Posts</p>
+                    <p class="stat-value">23</p>
+                </div>
+            </div>
+
+            <div class="stat-card subs-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-credit-card"></i></div>
+                <div class="stat-details">
+                    <p class="stat-label">Active Subscriptions</p>
+                    <p class="stat-value">1,204</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Management Grid -->
+        <div class="management-grid">
+            
+            <!-- LEFT COLUMN: User and Content Management -->
+            <div>
+                
+                <!-- User Management -->
+                <div class="user-management">
+                    <div class="section-header">
+                        <h2>User Management</h2>
+                        <button class="btn btn-secondary">View All Users</button>
+                    </div>
+                    <input type="search" placeholder="Search users by name, email, or ID..." class="user-search-bar">
+                    <!-- Placeholder for User List -->
+                </div>
+
+                <!-- Content Management -->
+                <div class="content-management">
+                    <div class="section-header">
+                        <h2>Content Management</h2>
+                        <button class="btn btn-primary">Add Guide</button>
+                    </div>
+                    
+                    <div class="guide-list">
+                        <!-- Example Guide 1 -->
+                        <div class="guide-item">
+                            <div class="guide-details">
+                                <p class="guide-title">Baby's First Year</p>
+                                <p class="guide-metadata">French • Trimester 2 • [ph]eye/[ph] no</p>
+                            </div>
+                            <button class="btn btn-secondary">Edit</button>
+                            <div class="guide-actions">
+                                <button class="btn btn-success">Toggle Publish</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Example Guide 2 -->
+                        <div class="guide-item">
+                            <div class="guide-details">
+                                <p class="guide-title">Family Dynamics</p>
+                                <p class="guide-metadata">Pidgin • Trimester 1</p>
+                            </div>
+                            <button class="btn btn-secondary">Edit</button>
+                            <div class="guide-actions">
+                                <button class="btn btn-success">Toggle Publish</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Example Guide 3 -->
+                        <div class="guide-item">
+                            <div class="guide-details">
+                                <p class="guide-title">Breastfeeding Benefits</p>
+                                <p class="guide-metadata">Hausa • Trimester 3 • [ph]eye/[ph] yes</p>
+                            </div>
+                            <button class="btn btn-secondary">Edit</button>
+                            <div class="guide-actions">
+                                <button class="btn btn-success">Toggle Publish</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Moderation Queue -->
+            <div class="moderation-queue">
+                <div class="section-header">
+                    <h2>Moderation Queue</h2>
+                    <button class="btn btn-secondary">View All Pending</button>
+                </div>
+
+                <!-- Moderation Card 1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <h3>Upcoming Meetup</h3>
+                        <span class="post-location">New York</span>
+                    </div>
+                    <p class="post-details">Join us for a community meeting</p>
+                    <p class="post-author-time">By • 871 ago</p>
+                    <div class="moderation-actions">
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                </div>
+
+                <!-- Moderation Card 2 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <h3>Health Tips</h3>
+                        <span class="post-location">Lagos</span>
+                    </div>
+                    <p class="post-details">Discussing healthy habits</p>
+                    <p class="post-author-time">By • 871 ago</p>
+                    <div class="moderation-actions">
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                </div>
+                
+                <!-- Moderation Card 3 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <h3>Nutrition Insights</h3>
+                        <span class="post-location">Berlin</span>
+                    </div>
+                    <p class="post-details">Eating right during pregnancy</p>
+                    <p class="post-author-time">By • 871 ago</p>
+                    <div class="moderation-actions">
+                        <button class="btn btn-approve">Approve</button>
+                        <button class="btn btn-reject">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+        <div class="footer-content-wrapper">
+
+            <!-- Branding & Description Section -->
+            <div class="footer-branding">
+                <div class="logo-container">
+                    <div class="logo"><img src="images/logo.avif" alt="" width="60px"> SerielleHealth</div>
+                </div>
+                <p class="tagline">
+                    Empowering expectant mothers in Nigeria with trusted medical guidance and community support throughout their pregnancy journey.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Links Columns Section -->
+            <div class="footer-links-container">
+                <div class="footer-column">
+                    <h4 class="column-title">Platform</h4>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Health Guides</a></li>
+                        <li><a href="#">For Clinicians</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="column-title">Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="column-title">Resources</h4>
+                    <ul>
+                        <li><a href="#">Health Blog</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Healthcare Partners</a></li>
+                        <li><a href="#">Emergency Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright & Credit Section -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 SerielleHealth. All rights reserved.</p>
+            <p class="credit">Made with <i class="fas fa-heart"></i> for Nigerian mothers</p>
+        </div>
+    </footer>
+
+</body>
+</html>

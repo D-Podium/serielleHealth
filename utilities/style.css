@@ -1,0 +1,653 @@
+:root {
+    --pink-primary: #e55a82;
+    --pink-secondary: #f06292;
+    --text-dark: #4a4a4a;
+    --text-light: #6a6a6a;
+    --bg-light: #f7f7f7;
+    --shadow-subtle: 0 2px 4px rgba(0,0,0,0.05);
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+}
+
+    /* NAVBAR */
+/* --- Base Navbar Styles --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Adjust padding as needed */
+    background-color: #ffffff;
+    font-family: sans-serif; /* Consistent with footer */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+/* Branding (Logo + Text) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: #EB3B8A;
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    gap: 8px;
+}
+
+.navbar-logo-img {
+    height: 35px; /* Adjust size */
+    margin-right: 8px;
+}
+
+.navbar-logo-text {
+    font-size: 26px; /* Slightly larger for prominence */
+    font-weight: 600;
+    color: #e55a82; /* Pink color */
+}
+
+/* Navigation Links Container */
+.navbar-links-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-right: 20px; /* Space between links and buttons */
+}
+
+.navbar-nav-links li {
+    margin: 0 15px;
+}
+
+.navbar-nav-links a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar-nav-links a:hover {
+    color: #e55a82; /* Pink hover effect */
+}
+
+/* Active Link Styling */
+.navbar-nav-links a.active,
+.navbar-nav-links a:hover {
+    color: var(--pink-primary);
+    border-bottom: 2px solid var(--pink-primary); /* Visual cue for active/hover */
+}
+
+/* Action Buttons */
+.navbar-actions .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    margin-left: 10px; /* Space between buttons */
+}
+
+.btn-login {
+    background-color: #f06292; /* Slightly lighter pink for login */
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #e55a82; /* Darker pink on hover */
+}
+
+.btn-signup {
+    background-color: #e55a82; /* Main pink for signup */
+    color: white;
+}
+
+.btn-signup:hover {
+    background-color: #d14a70; /* Darker pink on hover */
+}
+
+/* --- Hamburger Menu (Hidden by default) --- */
+.menu-toggle {
+    display: none; /* Hide the checkbox */
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #4a4a4a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet and smaller (e.g., up to $992\text{px}$ or $768\text{px}$ depending on content) */
+@media (max-width: 992px) {
+    .navbar-nav-links {
+        margin-right: 10px;
+    }
+
+    .navbar-nav-links li {
+        margin: 0 10px;
+    }
+
+    .navbar-actions .btn {
+        padding: 8px 15px; /* Slightly smaller buttons */
+        font-size: 14px;
+    }
+}
+
+
+/* Mobile (e.g., up to $768\text{px}$ or $600\text{px}$ depending on content) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger icon */
+    }
+
+    .navbar-links-container {
+        /* Hide by default and then show when menu-toggle is checked */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Adjust based on navbar height */
+        left: 0;
+        background-color: #ffffff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .navbar-nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .navbar-nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar-nav-links a {
+        display: block; /* Make links full width */
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .navbar-actions {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .navbar-actions .btn {
+        width: 100%;
+        margin: 5px 0; /* Stack buttons vertically */
+        padding: 12px 0;
+    }
+
+    /* JavaScript-free hamburger menu functionality */
+    .menu-toggle:checked ~ .navbar-links-container {
+        display: flex; /* Show menu when checkbox is checked */
+    }
+
+    /* Hamburger icon animation when open */
+    .menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+/* Even smaller screens (e.g., up to $480\text{px}$) if needed */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 4%;
+    }
+    .navbar-logo-img {
+        height: 30px;
+    }
+    .navbar-logo-text {
+        font-size: 22px;
+    }
+    .navbar-links-container {
+        top: 65px; /* Adjust for smaller navbar height */
+    }
+}
+
+
+
+    /* Layout */
+.dashboard-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 40px;
+}
+
+/* CARDS */
+.card {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+}
+
+/* Welcome */
+.welcome-text {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+/* Pregnancy Card */
+.pregnancy-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ececec;
+    padding: 20px;
+}
+
+.pc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pc-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pc-week {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Meta Rows */
+.pc-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15px;
+    row-gap: 5px;
+}
+
+.pc-meta .label {
+    font-size: 13px;
+    color: #999;
+}
+
+.pc-meta .value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 8px;
+    background: #f5c0d8;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 40%;
+    background: #EB3B8A;
+    border-radius: 5px;
+}
+
+/* Today's Checklist */
+.today-checklist {
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Small Card */
+.small-card .card-title,
+.community-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-card h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Button */
+.pink-btn {
+    background: #EB3B8A;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Subtext */
+.card-subtext {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Community */
+.community-item {
+    border: 1px solid #eee;
+    background: #fafafa;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.date {
+    font-size: 12px;
+    color: #888;
+}
+
+.community-title {
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.community-desc {
+    font-size: 13px;
+    color: #777;
+}
+
+/* Right Column */
+.guide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guide-header h3 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.view-library,
+.view-all {
+    color: #EB3B8A;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    .dashboard-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+    /* AI ASSISTANT */
+    .ai-card {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .ai-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ai-header h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .ai-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .ai-content {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    .ai-input-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .ai-input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid #E5E5E5;
+        background: #F8F8F8;
+        outline: none;
+    }
+
+    .ai-input:focus {
+        border-color: #E91E63;
+    }
+
+    .ai-send-btn {
+        background: #E91E63;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .ai-send-btn:hover {
+        background: #c2185b;
+    }
+
+
+    /* FOOTER */
+    /* General Footer Styles */
+.footer {
+    background-color: #f7f7f7;
+    padding: 60px 5%;
+    font-family: sans-serif;
+    color: #4a4a4a;
+}
+
+footer .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: #EB3B8A;
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    gap: 8px;
+}
+
+.footer-content-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Branding Section */
+.footer-branding {
+    flex: 2; /* Takes up 40% of the space on large screens */
+    padding-right: 40px;
+    min-width: 250px; /* Ensures it doesn't compress too much */
+}
+
+/* Links Columns Section */
+.footer-links-container {
+    flex: 3; /* Takes up 60% of the space on large screens */
+    display: flex;
+    /* Space the three columns evenly within the container */
+    justify-content: space-between;
+}
+
+.column-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #4a4a4a;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #6a6a6a;
+    font-size: 14px;
+}
+
+/* Bottom Section */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* --- Media Query for Tablets and Smaller ($768\text{px}$ Breakpoint) --- */
+
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        /* Stack the branding and links containers vertically */
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    /* Adjust padding for the branding section when stacked */
+    .footer-branding {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    /* Change the links container to wrap its columns */
+    .footer-links-container {
+        flex-wrap: wrap;
+        /* Use a fixed width or percentage for columns to control wrapping */
+        justify-content: flex-start;
+    }
+
+    .footer-column {
+        /* Each column takes up roughly half the space, allowing two columns per row */
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    /* Fix the layout for the last column if there's an odd number (3) */
+    .footer-column:nth-child(3) {
+        width: 100%; /* Make the last column take the full width */
+        margin-bottom: 0;
+    }
+
+    /* Bottom Section */
+    .footer-bottom {
+        /* Stack copyright and credit vertically on smaller screens */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .copyright {
+        margin-bottom: 5px;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+
+/* --- Media Query for Phones ($480\text{px}$ Breakpoint) --- */
+
+@media (max-width: 480px) {
+    .footer-column {
+        /* Stack all columns individually, each taking full width */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Ensure the very last column also has bottom margin if it's not the last element */
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-content-wrapper {
+        /* Add a separator between the main columns and the branding section on small screens */
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+        footer {
+            grid-template-columns: 1fr 1fr;
+        }
+        .auth-btns {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        footer {
+            grid-template-columns: 1fr;
+        }
+    }

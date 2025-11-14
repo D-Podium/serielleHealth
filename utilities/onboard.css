@@ -1,0 +1,657 @@
+:root {
+    --pink-primary: #e55a82;
+    --pink-secondary: #f06292;
+    --text-dark: #4a4a4a;
+    --text-light: #6a6a6a;
+    --bg-light: #f7f7f7;
+    --shadow-subtle: 0 2px 4px rgba(0,0,0,0.05);
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+}
+
+    /* NAVBAR */
+/* --- Base Navbar Styles --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Adjust padding as needed */
+    background-color: #ffffff;
+    font-family: sans-serif; /* Consistent with footer */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+/* Branding (Logo + Text) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo, footer .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: #EB3B8A;
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    gap: 8px;
+}
+
+.navbar-logo-img {
+    height: 35px; /* Adjust size */
+    margin-right: 8px;
+}
+
+.navbar-logo-text {
+    font-size: 26px; /* Slightly larger for prominence */
+    font-weight: 600;
+    color: #e55a82; /* Pink color */
+}
+
+/* Navigation Links Container */
+.navbar-links-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-right: 20px; /* Space between links and buttons */
+}
+
+.navbar-nav-links li {
+    margin: 0 15px;
+}
+
+.navbar-nav-links a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar-nav-links a:hover {
+    color: #e55a82; /* Pink hover effect */
+}
+
+/* Active Link Styling */
+.navbar-nav-links a.active,
+.navbar-nav-links a:hover {
+    color: var(--pink-primary);
+    border-bottom: 2px solid var(--pink-primary); /* Visual cue for active/hover */
+}
+
+/* Action Buttons */
+.navbar-actions .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    margin-left: 10px; /* Space between buttons */
+}
+
+.btn-login {
+    background-color: #f06292; /* Slightly lighter pink for login */
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #e55a82; /* Darker pink on hover */
+}
+
+.btn-signup {
+    background-color: #e55a82; /* Main pink for signup */
+    color: white;
+}
+
+.btn-signup:hover {
+    background-color: #d14a70; /* Darker pink on hover */
+}
+
+/* --- Hamburger Menu (Hidden by default) --- */
+.menu-toggle {
+    display: none; /* Hide the checkbox */
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #4a4a4a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet and smaller (e.g., up to $992\text{px}$ or $768\text{px}$ depending on content) */
+@media (max-width: 992px) {
+    .navbar-nav-links {
+        margin-right: 10px;
+    }
+
+    .navbar-nav-links li {
+        margin: 0 10px;
+    }
+
+    .navbar-actions .btn {
+        padding: 8px 15px; /* Slightly smaller buttons */
+        font-size: 14px;
+    }
+}
+
+
+/* Mobile (e.g., up to $768\text{px}$ or $600\text{px}$ depending on content) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger icon */
+    }
+
+    .navbar-links-container {
+        /* Hide by default and then show when menu-toggle is checked */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Adjust based on navbar height */
+        left: 0;
+        background-color: #ffffff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .navbar-nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .navbar-nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar-nav-links a {
+        display: block; /* Make links full width */
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .navbar-actions {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .navbar-actions .btn {
+        width: 100%;
+        margin: 5px 0; /* Stack buttons vertically */
+        padding: 12px 0;
+    }
+
+    /* JavaScript-free hamburger menu functionality */
+    .menu-toggle:checked ~ .navbar-links-container {
+        display: flex; /* Show menu when checkbox is checked */
+    }
+
+    /* Hamburger icon animation when open */
+    .menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+/* Even smaller screens (e.g., up to $480\text{px}$) if needed */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 4%;
+    }
+    .navbar-logo-img {
+        height: 30px;
+    }
+    .navbar-logo-text {
+        font-size: 22px;
+    }
+    .navbar-links-container {
+        top: 65px; /* Adjust for smaller navbar height */
+    }
+}
+
+
+
+/* --- 2. MAIN CONTENT STYLES (Form & Features) --- */
+
+/* Onboarding Form Section */
+.onboarding-form-section {
+    padding: 60px 5%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 500px;
+    width: 100%;
+}
+
+.section-title {
+    color: var(--pink-primary);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.onboarding-form {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.btn-onboarding-complete {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--pink-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Dot Navigation */
+.dot-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fce4ec; /* Light pink */
+    cursor: pointer;
+}
+
+.dot.active-dot {
+    background-color: var(--pink-primary);
+}
+
+/* What's Next Feature Section */
+.whats-next-section {
+    background-color: var(--bg-light);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.feature-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.whats-next-section h3 {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+}
+
+.feature-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    flex: 1;
+    max-width: 300px;
+    padding: 20px;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #fde6ee; /* Very light pink background */
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: var(--pink-primary);
+}
+
+.card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* RESPONSIVE */
+    @media (max-width: 900px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+    }
+    @media (max-width: 992px) {
+    /* Feature card stacking */
+    .feature-cards {
+        flex-wrap: wrap;
+    }
+    .card {
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Feature card stacking (single column) */
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+ 
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+}
+
+
+
+
+
+
+
+    /* FOOTER */
+    /* General Footer Styles */
+footer .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: #EB3B8A;
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    gap: 8px;
+}
+        /* --- 3. FOOTER STYLES --- */
+        .footer {
+            background-color: var(--bg-light);
+            padding: 60px 5%;
+            color: var(--text-dark);
+            margin-top: 50px;
+        }
+
+        .footer-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+        }
+
+        .footer-branding {
+            flex-basis: 35%;
+            padding-right: 50px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-img {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="%23e55a82"><path d="M256 32C132.3 32 32 132.3 32 256s100.3 224 224 224 224-100.3 224-224S379.7 32 256 32zm0 144c-39.7 0-72 32.3-72 72s32.3 72 72 72 72-32.3 72-72-32.3-72-72-72z"/></svg>');
+            height: 30px;
+            width: 30px;
+            margin-right: 8px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--pink-primary);
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--pink-primary);
+        }
+
+        .footer-links-container {
+            display: flex;
+            flex-basis: 60%;
+            justify-content: space-between;
+        }
+
+        .column-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--pink-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .credit i {
+            color: var(--pink-primary);
+            margin: 0 3px;
+        }
+/* ------------------------------------------------------------------- */
+/* Tablet and smaller (for Navbar) */
+        @media (max-width: 992px) {
+
+            /* Footer stacking for medium screens */
+            .footer-content-wrapper {
+                flex-wrap: wrap;
+            }
+            .footer-branding {
+                flex-basis: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            .footer-links-container {
+                flex-basis: 100%;
+            }
+        }
+/* --- Media Query for Tablets and Smaller ($768\text{px}$ Breakpoint) --- */
+
+@media (max-width: 768px) {
+    /* Library filters adaptation */
+            .filter-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .library-header h1 {
+                font-size: 1.6rem;
+            }
+
+    .footer-content-wrapper {
+        /* Stack the branding and links containers vertically */
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    /* Adjust padding for the branding section when stacked */
+    .footer-branding {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    /* Change the links container to wrap its columns */
+    .footer-links-container {
+        flex-wrap: wrap;
+        /* Use a fixed width or percentage for columns to control wrapping */
+        justify-content: flex-start;
+    }
+
+    .footer-column {
+        /* Each column takes up roughly half the space, allowing two columns per row */
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    /* Fix the layout for the last column if there's an odd number (3) */
+    .footer-column:nth-child(3) {
+        width: 100%; /* Make the last column take the full width */
+        margin-bottom: 0;
+    }
+
+    /* Bottom Section */
+    .footer-bottom {
+        /* Stack copyright and credit vertically on smaller screens */
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .copyright {
+        margin-bottom: 5px;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+
+/* --- Media Query for Phones ($480\text{px}$ Breakpoint) --- */
+
+@media (max-width: 480px) {
+    .footer-column {
+        /* Stack all columns individually, each taking full width */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Ensure the very last column also has bottom margin if it's not the last element */
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-content-wrapper {
+        /* Add a separator between the main columns and the branding section on small screens */
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+        footer {
+            grid-template-columns: 1fr 1fr;
+        }
+        .auth-btns {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        footer {
+            grid-template-columns: 1fr;
+        }
+    }
